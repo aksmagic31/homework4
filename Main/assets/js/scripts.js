@@ -1,4 +1,4 @@
-// 
+// dom elements
 
 var time = 60;
 var timerId;
@@ -19,9 +19,11 @@ function clockTick() {
   // this is the timer
   time--;
   timerEl.textContent = time;
+  console.log(time);
 
   // ends the quiz if user run out of time
   if (time == 0) {
+    
     quizEnd();
   }
 }
@@ -30,7 +32,7 @@ function startQuiz() {
   var startScreenEl = document.getElementById("start-screen");
   startScreenEl.setAttribute("class", "hide");
 
-  // show the questions
+  // show the questions to start the quiz
   questionsEl.removeAttribute("class");
 
   // start the timer
@@ -43,14 +45,14 @@ function startQuiz() {
 
 
 function getQuestion() {
-  // get current question object from array
+  // get current question from question array
   var currentQuestion = questions[currentQuestionIndex];
-
+  console.log(currentQuestion);
   // update title with current question
   var titleEl = document.getElementById("question-title");
   titleEl.textContent = currentQuestion.title;
 
-  // clear out any old question choices
+  // clear out any old question choices to have empty space
   choicesEl.innerHTML = "";
 
   // for each question, create the buttons for each of the choices
@@ -61,7 +63,7 @@ function getQuestion() {
 
     theChoice.textContent = i + 1 + ". " + choice;
 
-    // see which is the choice
+    // see what is the choice
     theChoice.onclick = questionClick;
 
     choicesEl.appendChild(theChoice);
@@ -71,7 +73,7 @@ function getQuestion() {
 function questionClick() {
   // if user choose the wrong choice, reduce time by 5 seconds per wrong question
   if (this.value !== questions[currentQuestionIndex].answer) {
-    //reduce time by 5 seconds per wrong question
+
     time = time - 5;
     timerEl.textContent = time;
   }
@@ -99,10 +101,19 @@ function quizEnd() {
   // show final score
   var finalScoreEl = document.getElementById("final-score");
   finalScoreEl.textContent = time;
+  
 
   // hide questions section
   questionsEl.setAttribute("class", "hide");
 }
 
+// save the name with high score
+var initialsEl = document.getElementById("initials");
 
+function saveHighScore(){
+  const newScore = { finalScoreEl, initialsEl };
+console.log(newScore);
+localStorage.setItem(HIGH_SCORES, JSON.stringify(newScore));
+}
 
+savehighScore();
