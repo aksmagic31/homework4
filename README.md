@@ -1,27 +1,14 @@
-## The Javascript Quick Quiz
+## The Javascript Quiz
 
 ## Description
+This is a website for a five-question Javascript Quiz testing our knowledge about the materials we learned so far. Once the quiz is completed, the user can input his intials and it will save together with his highscores on localstorage. 
 
-## User Story
+## Rules
+1. The user has 60 seconds to complete the quiz.
+2. There are 4 choices for each question.
+3. if the user select the wrong answer, 5 secs will be deducted from the timer.
+4. the quiz finishes once time is up or user finish answering all 5 questions.
 
-```
-AS A coding boot camp student
-I WANT to take a timed quiz on JavaScript fundamentals that stores high scores
-SO THAT I can gauge my progress compared to my peers
-```
 
-## Acceptance Criteria
-
-```
-GIVEN I am taking a code quiz
-WHEN I click the start button
-THEN a timer starts and I am presented with a question
-WHEN I answer a question
-THEN I am presented with another question
-WHEN I answer a question incorrectly
-THEN time is subtracted from the clock
-WHEN all questions are answered or the timer reaches 0
-THEN the game is over
-WHEN the game is over
-THEN I can save my initials and my score
-```
+## The Link
+https://aksmagic31.github.io/homework4/
