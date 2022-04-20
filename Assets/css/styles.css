@@ -1,0 +1,40 @@
+body {
+  font-family: sans-serif;
+  color:black;
+}
+
+.timer {
+  position: absolute;
+  background-color:red;
+  padding:10px;
+  top: 10px;
+  right: 10px;
+}
+
+.wrapper {
+  margin: 100px;
+  max-width: 600px;
+  background-color:coral;
+}
+
+button {
+  background-color: blue;
+  color: yellow;
+  display: inline-block;
+  margin: 15px;
+  border-radius: 5px;
+  padding:10px;
+}
+
+.choices button {
+  display: block;
+}
+
+
+.hide {
+  display: none;
+}
+
+.start {
+  text-align: center;
+}
