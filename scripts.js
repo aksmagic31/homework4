@@ -21,9 +21,9 @@ function clockTick() {
   timerEl.textContent = time;
   console.log(time);
 
-  // ends the quiz if user run out of time
+  // alert and ends the quiz if user run out of time
   if (time == 0) {
-    
+    window.alert("Time is Up!");
     quizEnd();
   }
 }
@@ -83,8 +83,8 @@ function questionClick() {
 
   // check if we've run out of questions
   if (currentQuestionIndex == questions.length) {
-    
     quizEnd();
+    
   } else {
     getQuestion();
   }
