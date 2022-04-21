@@ -109,6 +109,7 @@ function quizEnd() {
 // save the name with high score
 var initialsEl = document.getElementById("initials");
 
+// save them in localstorage and save them in highscore page 
 function saveHighScore(){
   var previousScore = JSON.parse(localStorage.getItem("highScore")) || [];
   const newScore = { 
