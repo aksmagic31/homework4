@@ -13,7 +13,6 @@ var submitBtn = document.getElementById("submit");
 // trigger the function when clicked 
 startBtn.onclick = startQuiz;
 
-initialsEl.onkeyup = checkForEnter;
 
 function clockTick() {
   // this is the timer
@@ -90,6 +89,7 @@ function questionClick() {
   }
 }
 
+var finalScoreEl = document.getElementById("final-score");
 function quizEnd() {
   // stop timer
   clearInterval(timerId);
@@ -99,7 +99,6 @@ function quizEnd() {
   endScreenEl.removeAttribute("class");
 
   // show final score
-  var finalScoreEl = document.getElementById("final-score");
   finalScoreEl.textContent = time;
   
 
@@ -111,9 +110,16 @@ function quizEnd() {
 var initialsEl = document.getElementById("initials");
 
 function saveHighScore(){
-  const newScore = { finalScoreEl, initialsEl };
+  var previousScore = JSON.parse(localStorage.getItem("highScore")) || [];
+  const newScore = { 
+    initials: initialsEl.value,
+    score: time,
+   };
+   console.log(previousScore);
 console.log(newScore);
-localStorage.setItem(HIGH_SCORES, JSON.stringify(newScore));
+previousScore.push(newScore);
+localStorage.setItem("highScore", JSON.stringify(previousScore)); 
+window.location.assign("scores.html")
 }
+submitBtn.addEventListener("click", saveHighScore);
 
-savehighScore();
